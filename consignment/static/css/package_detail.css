@@ -1,0 +1,58 @@
+/* CSS for Package Detail Page */
+
+/* Container styles */
+.container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card styles */
+.card {
+    margin-top: 20px;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Adjust width as needed */
+    max-width: 800px; /* Set maximum width */
+    background-color: blue;
+    padding: 20px;
+}
+
+/* Section heading styles */
+.section-heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Basic information styles */
+.basic-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: hsl(0, 63%, 50%);
+}
+
+/* Logistics styles */
+.logistics p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
