@@ -2,68 +2,59 @@
 {% load static %}
 
 {% block title %}Package Detail - Package Tracking System{% endblock %}
+
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'css/package_detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/package_detail.css' %}">
 {% endblock %}
+
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">Package Detail</h1>
+    <h1 class="section-heading">Package Detail</h1>
     {% if package %}
     <div class="card">
-        <div class="card-body">
-            <div class="section-heading">
-                <h2>Basic Information</h2>
-            </div>
-            <div class="basic-info">
-                <p><strong>Package ID:</strong> {{ package.package_id }}</p>
-                <p><strong>Name:</strong> {{ package.package_name }}</p>
-                <p><strong>Sender:</strong> {{ package.sender }}</p>
-                <p><strong>Receiver:</strong> {{ package.receiver }}</p>
-                <p><strong>Description:</strong> {{ package.package_description }}</p>
-                <p><strong>Quantity:</strong> {{ package.package_quantity }}</p>
-            </div>
-            
-            <hr>
-
-            <div class="section-heading">
-                <h2>Logistics</h2>
-            </div>
-            <div class="logistics">
-                <p><strong>Mode of Transit:</strong> {{ package.get_mode_of_transit_display }}</p>
-                <p><strong>Weight:</strong> {{ package.package_weight }}</p>
-                <p><strong>Status:</strong> {{ package.get_package_status_display }}</p>
-                <p><strong>Date:</strong> {{ package.package_date }}</p>
-                <p><strong>Destination:</strong> {{ package.package_destination }}</p>
-                <p><strong>Current Location:</strong> {{ package.package_location }}</p>
-            </div>
-            
-            <hr>
-
-            <div class="section-heading">
-                <h2>Shipping Details</h2>
-            </div>
-            <div class="shipping">
-                {% if package.package_status == 'In Transit' %}
-                <div class="embed-responsive embed-responsive-16by9 mb-3">
-                    <iframe class="embed-responsive-item" src="{{ package.sending_location }}" allowfullscreen=""></iframe>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col basic-info">
+                    <h2 class="section-heading">Basic Information</h2>
+                    <p><strong>Package ID:</strong> {{ package.package_id }}</p>
+                    <p><strong>Name:</strong> {{ package.package_name }}</p>
+                    <p><strong>Sender:</strong> {{ package.sender }}</p>
+                    <p><strong>Receiver:</strong> {{ package.receiver }}</p>
+                    <p><strong>Description:</strong> {{ package.package_description }}</p>
+                    <p><strong>Quantity:</strong> {{ package.package_quantity }}</p>
                 </div>
-                <div class="shipping-icon">
-                    <img src="{% static 'img/freight-ship.png' %}" alt="Freight Ship">
-                </div>
-                {% elif package.package_status == 'Delivered' %}
-                <div class="embed-responsive embed-responsive-16by9 mb-3">
-                    <iframe class="embed-responsive-item" src="{{ package.receiving_location }}" allowfullscreen=""></iframe>
-                </div>
-                <div class="shipping-icon">
-                    <img src="{% static 'img/airplane.png' %}" alt="Airplane">
-                </div>
-                {% endif %}
             </div>
-
-            {% if package.pdf %}
-            <a href="{{ package.pdf.url }}" class="btn btn-primary mt-3" download="{{package.pdf}}">Download PDF Receipt</a>
-            {% endif %}
+            <div class="col-md-6">
+                <div class="col logistics">
+                    <h2 class="section-heading">Logistics</h2>
+                    <p><strong>Mode of Transit:</strong> {{ package.get_mode_of_transit_display }}</p>
+                    <p><strong>Weight:</strong> {{ package.package_weight }}</p>
+                    <p><strong>Status:</strong> {{ package.get_package_status_display }}</p>
+                    <p><strong>Date:</strong> {{ package.package_date }}</p>
+                    <p><strong>Destination:</strong> {{ package.package_destination }}</p>
+                    <p><strong>Current Location:</strong> {{ package.package_location }}</p>
+                </div>
+            </div>
         </div>
+        
+        {% if package.package_status == 'In Transit' %}
+            <div class="col-md-6">
+                <iframe src="{{ package.sending_location }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        {% elif package.package_status == 'Delivered' %}
+        <div class="row">
+            <div class="col-md-6">
+                <iframe src="{{ package.receiving_location }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="btn-container">
+                {% if package.pdf %}
+                <a href="{{ package.pdf.url }}" class="btn btn-primary mt-3" download="{{package.pdf}}">View Receipt</a>
+                {% endif %}
+        </div>
+        
     </div>
     {% else %}
     <div class="alert alert-danger mt-3" role="alert">Package not found!</div>
