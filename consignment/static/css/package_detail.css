@@ -1,7 +1,10 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(to right, aqua,blue,skyblue,red);
+    background:url("background.jpg")rgb(66, 155, 206);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #333;
   }
   .logo {
@@ -29,6 +32,7 @@ body {
   .card {
     display: grid;
     background-color: white;
+    background-attachment: fixed;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;

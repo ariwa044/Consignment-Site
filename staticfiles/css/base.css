@@ -1,44 +1,87 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
+    font-family: 'Courier New', Courier, monospace;
+    background-image:images("images/background.jpg");
+    color: black;
+  }
+  .form-label {
+    color: black;
+    font-size: medium;
+    font-weight: normal;
+  }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
+  .logo {
+    width: 67px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 120%;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2, h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-p {
-    margin-bottom: 10px;
-}
-
-/* Button Styles */
-.button {
-    display: inline-block;
-    padding: 8px 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+  }
+  
+  /* Form Styles */
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn {
+    display: block;
+    width: 100%; /* Make the button full width */
+    max-width: 300px; /* Set a maximum width */
+    margin: 0 auto; /* Center the button horizontally */
+    margin-bottom: -10;
+    padding: 15px 30px; /* Adjust padding for length */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
     background-color: #007bff;
     color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    align-content: center;
-    
-}
+    border: none;
+    border-radius: 25px; /* Make the button roundier */
+    transition: background-color 0.3s ease;
+  }
 
-.button:hover {
+  .btn:hover {
     background-color: #0056b3;
-    
-}
+  }
+  
+  /* Alert Styles */
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
