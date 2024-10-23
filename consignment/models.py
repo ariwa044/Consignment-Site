@@ -15,9 +15,9 @@ class Ship(models.Model):
 
 class Customer(models.Model):
     customer_name = models.CharField(max_length=100, blank=False, null=False)
-    customer_address = models.CharField(max_length=100)
-    customer_phone = models.CharField(max_length=100)
-    customer_email = models.CharField(max_length=100)
+    customer_address = models.CharField(max_length=100, blank=True, null=True)
+    customer_phone = models.CharField(max_length=100, blank=True, null=True)
+    customer_email = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Customers"
