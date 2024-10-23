@@ -136,7 +136,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://7cc2fb4f-1308-4aee-a333-0c61e9bb733e-00-2oc189j1jzjm9.kirk.replit.dev//*.127.0.0.1'
 ]
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+#CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -146,7 +146,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 X_FRAME_OPTIONS ='SAMEORIGIN'
 
