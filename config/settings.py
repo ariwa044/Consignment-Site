@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-g($qdf^(m_ctt(!tkz93&-7@mw%dhr)3edk%8n4ub4fv=d!)(i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://cargobee.onrender.com'
+]
 
 # Application definition
 
@@ -132,8 +133,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.mydomain.com',
-    'https://7cc2fb4f-1308-4aee-a333-0c61e9bb733e-00-2oc189j1jzjm9.kirk.replit.dev//*.127.0.0.1'
+    'https://cargobee.onrender.com'
 ]
 
 #CKEDITOR_UPLOAD_PATH = "uploads/"
