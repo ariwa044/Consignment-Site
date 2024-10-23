@@ -1,148 +1,121 @@
+/* General Styles */
 body {
-  background-color: #0e1d34;
-  background-image: url('/static/images/world-dotted-map.png');
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.container {
-  margin: auto;
-}
-
-.tracking-container {
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 10px;
-  padding: 20px;
-  background-color: whitesmoke;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgb(20, 20, 20);
-}
-
-.container.text-center {
-  margin: 10px;
-  padding: 20px;
-  background-image: linear-gradient(#80bdff, #5490d1, #2b67d8);
-
-}
-
-h2, h3, h4, h5, h6 {
-  color: #001973;
-  font-family: var(--heading-font);}
-
-.title-text {
-  display: inline;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-bottom: 25px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1.7rem;
-  font-weight: 800;
-}
-.logo {
-  width: 35px; /* Adjusted logo size */
-  height: auto;
-}
-
-/* Form Styles */
-
-
-h1 {
-  color: white;
-  margin-top: 0;
-  margin-bottom: .5rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.form-group {
-  margin-top: 45px;
-}
-
-.form-label {
-  display: block;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7fa;
   color: #333;
-  margin-bottom: 5px;
 }
 
-.form-control {
-  width: 100%;
-  padding: 4px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
-  color: #495057;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.container {
+  margin-top: 2rem;
 }
 
-.form-control:focus {
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+/* Heading Styles */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+  animation: fadeIn 0.5s ease-in;
 }
 
-.btn {
-  display: inline-block;
-  width: 100;
-  padding: 4px;
-  font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #fff;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: linear-gradient(#80bdff, #5490d1, #2b67d8);
-  border: 1px solid #80bdff;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 4px;
-  inline-size: 103%;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-top: 2px; /* Added gap */
+.section-heading {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0056b3;
 }
 
-.btn:hover {
-  background-color: #0300bd;
-  border-color: #004085;
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Basic Info Section */
+.section-basic-info {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin: 1rem;
+}
+
+/* Logistics Section */
+.section-logistics {
+  background-color: #e9f5ff;
+  border-radius: 10px;
+  border: 1px solid #007bff;
+  margin: 1rem;
+}
+
+/* Map Section */
+.section-map {
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  border: 1px solid #0056b3;
+  margin: 1rem;
+}
+
+/* Row Styles */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Column Styles */
+.col-md-6 {
+  padding: 2rem;
+}
+
+/* Map Styles */
+iframe {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+iframe:hover {
+  transform: scale(1.02);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
 /* Alert Styles */
 .alert {
-  padding: 15px;
-  margin-top: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2rem;
+  }
 
-
-.promo-section p {
-  display: inline;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
-  margin: 0;
-}
-
-/* Footer Styles */
-.footer {
-  padding: 20px 0;
-  margin-top: 70px;
-  
-}
-
-
-
-.footer p {
-  margin: 0;
+  .section-heading {
+      font-size: 1.5rem;
+  }
 }

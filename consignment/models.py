@@ -3,14 +3,14 @@ from django.db import models
 
 class Ship(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)  # Corrected 'true' to 'True'
-    location = models.URLField(max_length=300, null=True, blank=True, help_text='URL for map iframe')
+    location = models.CharField(max_length=300, null=True, blank=True, help_text='name for map iframe')
 
     class Meta:
         verbose_name = 'Ship'
         verbose_name_plural = 'Ships'
 
     def __str__(self):
-        return f'Shipping for Package ({self.pk})'
+        return f'({self.title})'
 
 
 class Customer(models.Model):
@@ -31,6 +31,10 @@ class Package(models.Model):
     package_id = models.CharField(max_length=100, unique=True)
     package_name = models.CharField(max_length=100)
     package_weight = models.FloatField(null=True, blank=True, default=0.0)
+    shipping_cost = models.FloatField(null=True, blank=True, default=0.0)
+    package_description = models.TextField(null=True, blank=True)
+
+
 
     MODE_OF_TRANSIT_CHOICES = [
         ('Air', 'Air'),
@@ -41,12 +45,14 @@ class Package(models.Model):
 
     PACKAGE_STATUS_CHOICES = [
         ('Delivered', 'Delivered'),
+        ('On Hold', 'On Hold'),
         ('In Transit', 'In Transit')
     ]
     package_status = models.CharField(max_length=20, choices=PACKAGE_STATUS_CHOICES)
+    delivery_update = models.TextField(null=True, blank=True)
 
     sending_location = models.ForeignKey(
-        Ship,
+        'Ship',
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -59,7 +65,6 @@ class Package(models.Model):
         blank=True,
         related_name='receive_location'
     )
-    package_date = models.DateTimeField(auto_now_add=True)
     package_location = models.CharField(max_length=100)
     package_destination = models.CharField(max_length=100)
     sender = models.ForeignKey(
@@ -76,9 +81,11 @@ class Package(models.Model):
         blank=True,
         related_name='receiver'
     )
-    package_description = models.TextField(null=True, blank=True)
     package_quantity = models.IntegerField(default=1)
-    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    package_image = models.ImageField(upload_to='package_images/', default='default_image.jpg')
+    shipping_date = models.DateField(auto_now=True, null=True, blank=True)
+    delivery_date = models.DateField(null=True, blank=True)
+
 
     class Meta:
         verbose_name_plural = 'Packages'

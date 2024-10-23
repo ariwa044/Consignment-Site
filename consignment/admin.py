@@ -4,14 +4,13 @@ from .models import Customer, Package, Ship
 
 class PackageAdmin(admin.ModelAdmin):
     list_display = (
-        'package_id', 'package_name', 'package_weight', 'mode_of_transit',
-        'tracking_code',
-        'package_status', 'package_date', 'package_location',
+        'package_id', 'tracking_code', 'package_name', 'package_weight', 'mode_of_transit',
+        'package_status', 'delivery_update','shipping_date', 'delivery_date', 'package_location',
         'package_destination', 'sender', 'receiver', 'package_description',
-        'package_quantity', 'pdf'
+        'package_quantity', 'package_image',
     )
     search_fields = ('package_id', 'package_name', 'tracking_code')
-    list_filter = ('package_status', 'mode_of_transit', 'package_date')
+    list_filter = ('package_status', 'mode_of_transit', 'shipping_date')
 
 
 class CustomerAdmin(admin.ModelAdmin):

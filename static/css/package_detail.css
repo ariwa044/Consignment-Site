@@ -1,88 +1,151 @@
 /* General Styles */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  background-color: whitesmoke;
+  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
 }
 
 .container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: whitesmoke;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-
-.logo {
-  max-width: 100px; /* Adjust logo size as needed */
-  height: auto;
-}
 .text-center {
   text-align: center;
 }
 
 .section-heading {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 20px;
+  text-align: left;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #007bff;
+  margin-bottom: 25px;
 }
 
+/* Card Styles */
 .card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card .row.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
+  margin: 0;
 }
 
 .card .row.no-gutters > [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
+  padding: 15px;
 }
 
+/* Padding for sections */
 .p-3 {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
+/* Button Styles */
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 500;
   color: #fff;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: #80bdff;
-  border: 1px solid #007bff;
-  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  padding: 12px 30px;
   font-size: 1rem;
-  border-radius: 4px;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .btn:hover {
   background-color: #0056b3;
-  border-color: #004085;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Alert Styles */
 .alert {
-  padding: 15px;
+  padding: 20px;
   margin-top: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
 .alert-danger {
   color: #721c24;
   background-color: #f8d7da;
-  border-color: #f5c6cb;
+  border: 1px solid #f5c6cb;
+}
+
+/* Map Section */
+.map-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+iframe {
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+iframe:hover {
+  transform: scale(1.02);
+}
+
+/* Basic Info and Logistics Section */
+.info, .logistics {
+  background-color: #f9f9fb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.info h2, .logistics h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  .p-3 {
+    padding: 1rem;
+  }
 }

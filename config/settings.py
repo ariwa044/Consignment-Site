@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'consignment',
-#    'ckeditor', 'jazzmin'
+#    'ckeditor',
+    
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add Whitenoise here
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,10 +76,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Database name
+        'USER': 'postgres.sbgpdfjfcqdwbjaiockn',  # Supabase user
+        'PASSWORD': 'Arinze123..',  # Replace with your actual password
+        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',  # Supabase host
+        'PORT': '6543',  # Supabase port
     }
 }
 
@@ -144,11 +152,24 @@ X_FRAME_OPTIONS ='SAMEORIGIN'
 
 # settings.py
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',  # Can be any identifier
     }
+}
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Your Site Title",
+    "site_header": "Your Site Header",
+    "site_brand": "Your Brand",
+    "welcome_sign": "Welcome to the Admin Dashboard",
+    "copyright": "Your Company Name",
+    "search_model": "auth.User",  # Example of search model
+    # Add more customization as needed
 }
