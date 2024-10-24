@@ -75,7 +75,7 @@
               We provide reliable and fast shipping services that ensure your packages are delivered safely and on time. Our dedicated team takes every precaution to handle your shipment with care, offering tracking, insurance, and 24/7 support. With global reach and secure Cargo Beetics solutions, Cargo Bee guarantees a seamless experience from pick-up to delivery.
           </p>
             
-            <form action="{% url 'consignment:track_package' %}" method="POST" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <form action="{% url 'consignment:track_package' %}" method="POST" class="form-search d-flex align-items-stretch mb-3">
               {% csrf_token %}
               <input type="text" name="tracking_code" class="form-control" placeholder="Enter your tracking code" required>
               <button type="submit" class="btn btn-primary">Track Package</button>
@@ -173,7 +173,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up" data-aos-delay="200">
-            <img src="{% static 'images/about.jpg' %'}" class="img-fluid" alt="">
+            <img src="{% static 'images/about.jpg' %}" class="img-fluid" alt="">
           <!--  <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>-->
           </div>
 
