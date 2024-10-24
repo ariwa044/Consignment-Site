@@ -1,6 +1,6 @@
 django==4.2
 django-jazzmin
-whitenoise
+
 psycopg2
 supabase
 httpx
