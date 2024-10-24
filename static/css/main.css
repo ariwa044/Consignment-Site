@@ -910,7 +910,7 @@ section,
 }
 
 .hero form {
-  background: color-mix(in srgb, var(--default-color) 5%, white 90%);
+  background: white;
   padding: 10px;
   border-radius: 10px;
 }
