@@ -7,3 +7,4 @@ reportlab
 gunicorn
 whitenoise
 plotly
+requests
