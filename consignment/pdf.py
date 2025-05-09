@@ -70,9 +70,9 @@ def generate_receipt_pdf(response, package):
     # Shipping details in two columns
     shipping_details = [
         ['FROM:', 'TO:'],
-        [package.sender.customer_name, package.receiver.customer_name],
-        [package.sender.customer_address, package.receiver.customer_address],
-        [package.sender.customer_phone, package.receiver.customer_phone],
+        [package.sender, package.receiver],
+        [package.sending_location, package.receiving_location],
+        [package.tel, package.email],
         ['', '']
     ]
 

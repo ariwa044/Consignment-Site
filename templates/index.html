@@ -34,6 +34,8 @@
   
   <!-- Main JS 
   <script src="{% static 'js/main.js' %}"></script>-->
+  <script src="//code.jivosite.com/widget/Fy9ySenXxV" async></script>
+
 </head>
   
   
@@ -74,24 +76,26 @@
               We provide reliable and fast shipping services that ensure your packages are delivered safely and on time. Our dedicated team takes every precaution to handle your shipment with care, offering tracking, insurance, and 24/7 support. With global reach and secure Cargo Beetics solutions, Cargo Bee guarantees a seamless experience from pick-up to delivery.
           </p>
             
-            <form action="{% url 'consignment:track_package' %}" method="POST" class="form-search d-flex align-items-stretch mb-3">
+            <form action="{% url 'track:track_package' %}" method="POST" class="form-search d-flex align-items-stretch mb-3">
               {% csrf_token %}
               <input type="text" name="tracking_code" class="form-control" placeholder="Enter your tracking code" required>
               <button type="submit" class="btn btn-primary">Track Package</button>
-            </form>              
-
+            </form>       
+            {% if error_message %}
+                <div class="alert alert-danger">{{ error_message }}</div>
+            {% endif %}
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="2462" data-purecounter-duration="0" class="purecounter">762</span>
+                  <span data-purecounter-start="0" data-purecounter-end="2462" data-purecounter-duration="0" class="purecounter">7492</span>
                   <p>Clients</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="9733" data-purecounter-duration="0" class="purecounter">8121</span>
+                  <span data-purecounter-start="0" data-purecounter-end="9733" data-purecounter-duration="0" class="purecounter">46121</span>
                   <p>Projects</p>
                 </div>
               </div><!-- End Stats Item -->

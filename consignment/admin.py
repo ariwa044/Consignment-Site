@@ -1,42 +1,22 @@
 from django.contrib import admin
-from .models import Customer, Package, Ship
+from .models import Package
 
 
 class PackageAdmin(admin.ModelAdmin):
-    list_display = (
-        'package_id', 'tracking_code', 'package_name', 'package_weight', 'mode_of_transit',
-        'package_status', 'delivery_update','shipping_date', 'delivery_date', 'package_location',
-        'package_destination', 'sender', 'receiver', 'package_description',
-        'package_quantity', 'package_image',
+    list_display = ('tracking_code', 'package_name', 'mode_of_transit',
+        'package_status', 'sending_location', 'receiving_location', 'delivery_update', 'shipping_date', 'delivery_date', 'current_location', 'sender', 'receiver',
     )
     search_fields = ('package_id', 'package_name', 'tracking_code')
     list_filter = ('package_status', 'mode_of_transit', 'shipping_date')
 
-
-class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('customer_name', 'customer_address', 'customer_phone', 'customer_email')
-    search_fields = ('customer_name', 'customer_email', 'customer_phone')
-    list_filter = ('customer_address',)
-
-
-class ShipAdmin(admin.ModelAdmin):
-    list_display = ('title', 'location')
-    search_fields = ('title','location')
-
     # Custom display for map iframes in the admin panel
     def map_iframe(self, obj):
         iframe_html = ''
-        if obj.sending_location:
-            iframe_html += f'<iframe src="{obj.sending_location}" width="300" height="200"></iframe>'
-        if obj.receiving_location:
-            iframe_html += f'<iframe src="{obj.receiving_location}" width="300" height="200"></iframe>'
+        if obj.current_location:
+            iframe_html += f'<iframe src="{obj.current_location}" width="100" height="100"></iframe>'
         return iframe_html or "No Map URLs Provided"
 
     map_iframe.short_description = 'Map Preview'
     map_iframe.allow_tags = True
-    readonly_fields = ('map_iframe',)
-
-
+    
 admin.site.register(Package, PackageAdmin)
-admin.site.register(Customer, CustomerAdmin)
-admin.site.register(Ship, ShipAdmin)

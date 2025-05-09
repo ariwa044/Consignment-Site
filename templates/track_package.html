@@ -4,7 +4,7 @@
 {% block content %}
 <div class="tracking-container">
     <h1 class="text-center">Track Your Package</h1>
-    <form method="post" action="{% url 'consignment:track_package' %}" class="tracking-form">
+    <form method="post" action="{% url 'track:track_package' %}" class="tracking-form">
         {% csrf_token %}
         <div class="form-group">
             <label for="tracking_number" class="form-label">Enter Tracking Code</label>
