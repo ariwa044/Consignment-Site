@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-secret-key-here')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', 'https://www.chasexpress.com'
+ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'cargoxpress.onrender.com', 'chasexpress.com'
 ]
 
 # Application definition
@@ -154,7 +154,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://www.chasexpress.com',
+    'https://www.chasexpress.com', 'https://www.cargoxpress.onrender.com'
 ]
 
 #CKEDITOR_UPLOAD_PATH = "uploads/"
