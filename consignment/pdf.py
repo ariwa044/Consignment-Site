@@ -33,8 +33,8 @@ def generate_receipt_pdf(response, package):
     # Header with company info
     header_data = [
         [create_simple_logo(), 'SHIPPING RECEIPT', '', f'Receipt #{package.package_id}'],
-        ['', 'CARGO BEE', '', f'Date: {package.shipping_date.strftime("%Y-%m-%d")}'],
-        ['', '283 Pier Drive, Brooklyn...', '', f'Time: {package.shipping_date.strftime("%H:%M")}'],
+        ['', '','CHASEXPRESS', '', f'Date: {package.shipping_date.strftime("%Y-%m-%d")}'],
+       # ['', '283 Pier Drive, Brooklyn...', '', f'Time: {package.shipping_date.strftime("%H:%M")}'],
     ]
 
     # Create header table with styling
@@ -125,7 +125,7 @@ def generate_receipt_pdf(response, package):
     elements.append(Spacer(1, 10*mm))
 
     # Footer
-    footer_text = '''Thank you for choosing Cargo Bee!
+    footer_text = '''Thank you for choosing CHASEXPRESS!
  visit www.chasexpress.com'''
     
     footer = Paragraph(

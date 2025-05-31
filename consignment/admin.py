@@ -4,7 +4,7 @@ from .models import Package
 
 class PackageAdmin(admin.ModelAdmin):
     list_display = ('tracking_code', 'package_name', 'mode_of_transit',
-        'package_status', 'sending_location', 'receiving_location', 'delivery_update', 'shipping_date', 'delivery_date', 'current_location', 'sender', 'receiver',
+        'package_status','shipping_date', 'delivery_date', 'current_location', 'sender', 'receiver',
     )
     search_fields = ('package_id', 'package_name', 'tracking_code')
     list_filter = ('package_status', 'mode_of_transit', 'shipping_date')

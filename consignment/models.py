@@ -1,7 +1,9 @@
 import random
 import string
 from django.db import models
-
+from django.core.mail import send_mail, EmailMessage, get_connection, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.conf import settings
 
 def generate_tracking_code():
     # Start with 'CB' for Tracking
@@ -85,5 +87,49 @@ class Package(models.Model):
     class Meta:
         verbose_name_plural = 'Packages'
 
+        
+    def send_package_email(self):
+        """Send email notification with tracking information using EmailMultiAlternatives"""
+        import logging
+        logger = logging.getLogger(__name__)
+        
+        if not self.email:
+            logger.warning(f"No email address provided for package {self.package_id}")
+            return False
+    
+        subject = "Your Package Shipment Confirmation"
+        context = {
+            'tracking_code': self.tracking_code,
+            'destination': self.receiving_location,
+            'current_location': self.current_location,
+            'package': self
+        }
+    
+        try:
+            text_content = render_to_string('emails/package_notification.txt', context)
+            html_content = render_to_string('emails/package_notification.html', context)
+        except Exception as template_error:
+            logger.error(f"Template rendering failed for package {self.package_id}: {str(template_error)}")
+            return False
+    
+        try:
+            # Create the email message
+            email = EmailMultiAlternatives(
+                subject=subject,
+                body=text_content,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[self.email],
+                connection=get_connection()
+            )
+            # Attach HTML content
+            email.attach_alternative(html_content, "text/html")
+            # Send the email
+            email.send()
+            logger.info(f"Email sent using EmailMultiAlternatives for package {self.package_id}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to send package email via EmailMultiAlternatives: {str(e)}")
+            return False
+
     def __str__(self):
-        return f'{self.package_name} ({self.package_id})'
+        return f'{self.package_name} ({self.package_id}) '
