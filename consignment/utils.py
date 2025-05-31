@@ -47,7 +47,7 @@ def generate_tracking_map(package):
         text=[package.current_location, package.receiving_location],
         marker=dict(
             size=12,
-            color=['blue', 'pink']
+            color=['blue', 'red']
         ),
         line=dict(
             width=3,
