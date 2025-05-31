@@ -86,11 +86,9 @@
                 <p><strong>Estimated Delivery:</strong> {{ package.delivery_date|date:"F j, Y" }}</p>
                 {% endif %}
             </div>
-            
-            <p>We've attached your shipping receipt to this email for your records.</p>
-            
+                        
             <center>
-                <a href="https://www.chasexpress.com/track?code={{ tracking_code }}" class="button">
+                <a href="https://www.chasexpress.com/package/{{ package.package_id }}" class="button">
                     Track Your Package
                 </a>
             </center>

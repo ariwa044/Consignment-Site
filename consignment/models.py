@@ -19,7 +19,7 @@ def send_package_email(package):
         logger.warning(f"No email address provided for package {package.package_id}")
         return False
 
-    subject = "Your Package Shipment Confirmation"
+    subject = "Shipment Notification - Your Package is on the Way!"
     context = {
         'tracking_code': package.tracking_code,
         'destination': package.receiving_location,
@@ -84,6 +84,13 @@ def generate_package_id():
     
     return package_id
 
+from datetime import date, timedelta
+
+def default_delivery_date():
+    return date.today() + timedelta(days=2)
+
+def default_shipping_date():
+    return date.today()
 class Package(models.Model):
     tracking_code = models.CharField(
         max_length=32, 
@@ -129,8 +136,8 @@ class Package(models.Model):
     shipping_cost = models.FloatField(null=True, blank=True, default=0.0)
     package_quantity = models.IntegerField(default=1)
 
-    shipping_date = models.DateField(auto_now=True, null=True, blank=True)
-    delivery_date = models.DateField(auto_now_add=True, null=True, blank=True)
+    shipping_date = models.DateField(default=default_shipping_date, null=True, blank=True)
+    delivery_date = models.DateField(default=default_delivery_date, null=True, blank=True)
 
 
     class Meta:

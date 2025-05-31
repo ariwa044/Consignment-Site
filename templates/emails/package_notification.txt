@@ -21,7 +21,7 @@ Current Location: {{ current_location }}
 Estimated Delivery: {{ package.delivery_date|date:"F j, Y" }}
 {% endif %}
 
-Track your package at: https://www.chasexpress.com/track?code={{ tracking_code }}
+Track your package at: https://www.chasexpress.com/package/{{ package.package_id }}
 
 For any questions or concerns about your shipment, please don't hesitate to contact our customer service team.
 
