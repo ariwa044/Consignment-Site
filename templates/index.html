@@ -517,21 +517,21 @@ s0.parentNode.insertBefore(s1,s0);
           </a>
           <p> We are committed to providing exceptional shipping and Chasexpresstics services tailored to meet your needs. Our focus on reliability and customer satisfaction ensures that your packages are handled with care and delivered on time. Thank you for choosing us as your trusted Chasexpresstics partner.</p>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <!--<a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
             <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>-->
           </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#">Terms of service</a></li>
-          <li><a href="#">Privacy policy</a></li>
+            <li><a href="{% url 'track:track_package' %}">Home</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="{% url 'track:terms_of_service' %}">Terms of Service</a></li>
+          <li><a href="{% url 'track:privacy_policy' %}">Privacy Policy</a></li>
+          <li><a href="{% url 'track:cookies_policy' %}">Cookies Policy</a></li>
         </ul>
       </div>
 
