@@ -13,7 +13,7 @@ class PackageSitemap(Sitemap):
         return reverse('track:package_detail', kwargs={'package_id': obj.package_id})
 
     def lastmod(self, obj):
-        return obj.updated_at  # Assuming you have an updated_at field
+        pass  # Assuming you have an updated_at field
 
 class StaticViewSitemap(Sitemap):
     changefreq = "weekly"
