@@ -116,7 +116,10 @@ h6 {
   left: -15%;
   background: rgba(198, 16, 0, 0);
 }
-
+ul {
+  height: fit-content;
+  width: auto;
+}
 .pulsating-play-btn:after {
   content: "";
   position: absolute;
