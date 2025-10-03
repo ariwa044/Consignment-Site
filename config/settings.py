@@ -149,6 +149,10 @@ USE_SSL = True
 
 SECURE_SSL_REDIRECT = True
 
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
@@ -163,7 +167,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://www.chasexpress.com', 'https://www.cargoxpress.onrender.com'
+    'https://www.chasexpress.com'
 ]
 
 #CKEDITOR_UPLOAD_PATH = "uploads/"
