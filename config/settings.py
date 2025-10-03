@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'cargoxpress.onrender.com', 'chasexpress.com'
+ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'https://chasexpress-92945097390.europe-west1.run.app', 'chasexpress.com'
 ]
 
 # Application definition
